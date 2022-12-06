@@ -7,9 +7,9 @@
 
 # User-specific files
 .Ruserdata
-.Errors_12062022_JED.xlsx
-.output
-.doc
+Errors_12062022_JED.xlsx
+output/
+doc/
 
 # Example code in package build process
 *-Ex.R
