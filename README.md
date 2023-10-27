@@ -1,6 +1,7 @@
 # Uncertainty_individuals_means
 This is an assessment of uncertainty in the elemental composition of trees and forests (e.g., total carbon, Ca content of leaves). We compare the importance of propagating the uncertainty of mean values vs individual values.
 
+This code was used in the paper by Yanai et al. (2023) in Ecosystems entitled "Propagating uncertainty in predicting individuals and means illustrated with foliar chemistry and forest biomass".
 
 If you need help getting started with R and github, then I recommend this post: https://rfortherestofus.com/2021/02/how-to-use-git-github-with-r/ .
 
