@@ -69,9 +69,9 @@ calcium1.df <- as.data.frame(do.call(rbind,out_calcium1))
 calcium2.df <- as.data.frame(do.call(rbind,out_calcium2)) 
 calcium3.df <- as.data.frame(do.call(rbind,out_calcium3)) 
 
-variances1 <- summaryBy(mean~trees,data=calcium1.df,FUN=var)
-variances2 <- summaryBy(mean~trees,data=calcium2.df,FUN=var)
-variances3 <- summaryBy(mean~trees,data=calcium3.df,FUN=var)
+variances1 <- summaryBy(mean~trees,data=calcium1.df,FUN=var) # individuals
+variances2 <- summaryBy(mean~trees,data=calcium2.df,FUN=var) # means
+variances3 <- summaryBy(mean~trees,data=calcium3.df,FUN=var) # both
 
 #- what should we have gotten?
 variances2$mean.var*(1-1/variances2$trees)

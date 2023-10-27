@@ -21,10 +21,14 @@ for(z in 1: length(plot.sample.size)){
   ### Biomass
   dbh <- rep(tree.dbh.for.fake.forest, each = no.trees/10) # selects the same tree dbh values each time. Repeats these values for larger 'plot sizes'.
   
+  #- update from Javier on sampling dbh values from a normal distribution
+  #dbh <- rep(tree.dbh.for.fake.forest, each = no.trees/10) # selects the same tree dbh values each time. Repeats these values for larger 'plot sizes'.
+  #dbh <- rnorm(no.trees,mean(dbh),5)
+  
   numerator <- (log10(dbh) - mean(log10(w.DBH)))^2  # How far away is the dbh of each tree from the mean
   #   dbh in Whittaker's dataset?
   
-  for(k in 1:no.iter){ # loop over interations to calculate calcium values for individual trees no.iter times (i.e, 1000 times)
+  for(k in 1:no.iter){ # loop over iterations to calculate calcium values for individual trees no.iter times (i.e, 1000 times)
     
     ### Calcium. I am not sure that "calcium3" was calculated properly here. Work on this. 
     calcium1 <- rnorm(plot.sample.size[z], mean.field, SD.field) # for method 1 (individuals)
@@ -102,6 +106,7 @@ for(z in 1: length(plot.sample.size)){
 #- define the level of the factor variable for "method"
 gdat.z$method <- factor(gdat.z$method,levels=c("Individual","Mean","Both"))
 
+
 # End Monte Carlo
 #---------------------------------------------------------------
 #---------------------------------------------------------------
@@ -134,7 +139,7 @@ ggsave("output/Figure5- Regression_graph_leafbiomass_output.png", height = 8, wi
 
 
 
-#- Make a series of histograms for leaf Ca concentration. This is now Figure 2.
+#- Make a series of histograms for leaf Ca concentration. This is now Figure 3.
 gdat.z %>% 
   mutate(method = factor(method, labels = c("Uncertainty in the prediction\nof an individual", "Uncertainty in the prediction\nof the mean", "Both")), z = factor(z, labels = c("10 trees\n0.002 ha", "30 trees\n0.06 ha", "50 trees\n0.1 ha", "100 trees\n0.2 ha", "1000 trees\n2 ha", "10000 trees\n20 ha"))) %>% 
   ggplot(aes(x = Point.calcium, group = method)) + 
@@ -144,7 +149,7 @@ gdat.z %>%
   xlab(expression(paste("Leaf calcium concentration ", (mg~g^-1)))) + 
   ylab("Frequency of Monte Carlo outcomes") + 
   theme_bw()
-ggsave("output/Figure2- Regression_graph_calcium_concentration_output.png", height = 8, width = 7)
+ggsave("output/Figure3- Regression_graph_calcium_concentration_output.png", height = 8, width = 7)
 
 
 #- Make a series of histograms for total leaf Ca content. This is now Figure 6.

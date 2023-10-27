@@ -51,6 +51,11 @@ n <- length(w.lt)    # number of samples
 wf.syx <- sqrt( sum(((log10(w.lt)-wf.y)^2)) / (n - 2) ) # sy.x from yanai. Also called the Root Mean Square Error (RMSE). Note log-scale.
 denominator <- sum((log10(w.DBH) - mean(log10(w.DBH)))^2) # denominator from eq 5 and 6 in yanai. Note log-scale.
 
+#- values for the analytical solution in Box 3
+Xbar <- mean(log10(w.DBH))
+ssXa <- sum((log10(w.DBH) - mean(log10(w.DBH)))^2)
+sigmax <- sd(log10(w.DBH))
+
 #- end of data manipulation
 #---------------------------------------------------------------
 #---------------------------------------------------------------

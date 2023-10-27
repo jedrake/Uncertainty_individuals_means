@@ -45,7 +45,6 @@ source("R/allometric_data.R")
 #---------------------------------------------------------------
 
 
-
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 #- Make the conceptual figure showing the distribution. Figure 1.
@@ -62,7 +61,7 @@ source("R/Conceptual_figure.R")
 #   in subsequent analyses for which we advocate using 10,000 iterations.
 no.iter <- 3000
 source("R/Univariate_case.R")
-no.iter <- 10000
+no.iter <- 10000 # set the number of iterations back to 10000
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 
@@ -80,11 +79,23 @@ source("R/illustrate_allometry.R")
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 #- Run the main Monte Carlo uncertainty assessment code.
-#  Create Figures 2, 5, and 6.
-source("R/main_monte_carlo.R")
+#  Create Figures 3, 5, and 6.
+source("R/main_monte_carlo.R") 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 
+
+
+
+#---------------------------------------------------------------
+#---------------------------------------------------------------
+#- Run an alternative version of the main Monte Carlo code,
+#  but in an assessment of the analytical solution presented in 
+#  box 3
+
+source("R/main_monte_carlo_analytical_assessment.R") 
+#---------------------------------------------------------------
+#---------------------------------------------------------------
 
 
 #---------------------------------------------------------------
