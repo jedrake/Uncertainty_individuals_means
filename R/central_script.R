@@ -3,10 +3,12 @@
 #- This script demonstrates three ways of propagating the uncertainty of total foliar Ca of 
 #     forested stands that contain different numbers of individual trees.
 #
-#  This is the central script for the manuscript. This script calls many other scripts that perform
-#     subroutines, as described below.
+#  This is the central script for the by Yanai et al. (2023) in Ecosystems, entitled:
+#   "Propagating uncertainty in predicting individuals and means illustrated with foliar chemistry and forest biomass"
+#
+#  This script calls many other scripts that perform subroutines, as described below.
 #  
-#  This code was primarily written by Hannah Buckley in 2016 and was edited by John Drake in 2018-2022.
+#  This code was primarily written by Hannah Buckley in 2016 and was edited by John Drake in 2018-2023.
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 

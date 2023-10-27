@@ -165,7 +165,10 @@ gdat.z$method <- factor(gdat.z$method,levels=c("Individual","Mean","Both"))
 
 #Here we compared both regression results, the MC (gdat.z) and the analytical (gdatanal.z).
 #We compare Log (leaf mass)
-gdat.z %>% group_by(method,k) %>% summarise(var=var(Logleafmass, na.rm = TRUE))
+mcresults <- gdat.z %>% group_by(method,k) %>% summarise(var=var(Logleafmass, na.rm = TRUE))
 gdatanal.z
 
-
+plot(subset(mcresults,method=="Both")$var~gdatanal.z$total,
+     xlab="Analytical solution (variance)",
+     ylab="Monte Carlo solution (variance)")
+abline(0,1)
