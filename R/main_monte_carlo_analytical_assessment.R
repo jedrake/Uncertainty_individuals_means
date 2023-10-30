@@ -137,18 +137,18 @@ for(z in 1: length(plot.sample.size)){
   if(z > 1)  { gdat.z <- rbind(gdat.z, out.z)  }
   
   #Analytical result: Terry's development in box 3
-  anal_result.z=var/n+var*var_x/(no.trees*SSz)+var_x*beta1^2/no.trees+var*(mu-meanz)^2/SSz+var/no.trees
+  ana_result.z=var/n+var*var_x/(no.trees*SSz)+var_x*beta1^2/no.trees+var*(mu-meanz)^2/SSz+var/no.trees
   
-  outanal.z=rbind(data.frame(k=no.trees,
+  outana.z=rbind(data.frame(k=no.trees,
                              first=var/n, 
                              second=var*(mu-meanz)^2/SSz,
                              third=var*var_x/(no.trees*SSz),
                              fourth=var_x*beta1^2/no.trees,
                              fifth=var/no.trees,
-                             total=anal_result.z))
+                             total=ana_result.z))
   
-  if(z == 1) { gdatanal.z <- outanal.z  }
-  if(z > 1)  { gdatanal.z <- rbind(gdatanal.z, outanal.z)  }  
+  if(z == 1) { gdatana.z <- outana.z  }
+  if(z > 1)  { gdatana.z <- rbind(gdatana.z, outana.z)  }  
   
     
     
@@ -166,9 +166,9 @@ gdat.z$method <- factor(gdat.z$method,levels=c("Individual","Mean","Both"))
 #Here we compared both regression results, the MC (gdat.z) and the analytical (gdatanal.z).
 #We compare Log (leaf mass)
 mcresults <- gdat.z %>% group_by(method,k) %>% summarise(var=var(Logleafmass, na.rm = TRUE))
-gdatanal.z
+gdatana.z
 
-plot(subset(mcresults,method=="Both")$var~gdatanal.z$total,
+plot(subset(mcresults,method=="Both")$var~gdatana.z$total,
      xlab="Analytical solution (variance)",
      ylab="Monte Carlo solution (variance)")
 abline(0,1)

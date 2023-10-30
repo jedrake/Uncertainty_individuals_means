@@ -168,7 +168,7 @@ ggsave("output/Figure6- Regression_graph_calcium_content_output.png", height = 8
 # Write out a Table of SD values from Monte Carlo output values
 gdat.z %>% 
   group_by(method, z) %>% 
-  summarise_all(funs(sd)) %>% 
+  summarise_all(list(sd=sd)) %>% 
   write.table("output/SD_values_Monte_Carlo.csv", sep = ",", row.names = F)
 #---------------------------------------------------------------
 #---------------------------------------------------------------
