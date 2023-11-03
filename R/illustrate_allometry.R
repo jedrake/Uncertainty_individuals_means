@@ -15,7 +15,7 @@
 
 #   This is meant to be a demonstration of this approach graphically,
 #     in the context of regression confidence and prediction intervals.
-#   It uses the Whittaker data coded at the top
+#   It uses the Whittaker data that were read in previously by allometric_data.R
 wdat
 wdat$DBH_log <- log10(wdat$DBH)
 wdat$leaves_log <- log10(wdat$leaves)
@@ -88,7 +88,9 @@ addpoly <- function(x,y1,y2,col=alpha("lightgrey",0.7),...){
 
 #- illustrate the uncertainty in mean and individual predictions
 #windows(100,100)
-pdf(file="output/Figure4- allometry.pdf",width=8,height=8)
+pdf(file="output/Figure5- allometry.pdf",width=8,height=8)
+#tiff(file="output/Figure5- allometry.tiff", units="in", width=8, height=8, res=300)
+
 
 par(mar=c(6,6,1,1),cex.axis=2)
 plot(leaves_log~DBH_log,data=wdat,pch=1,ylim=c(1,5),xlab="",ylab="")
@@ -120,6 +122,6 @@ pred_linear <- 10^wf.y
 #---------------------------------------------------------------
 
 dev.off()
-#- E N D     OF     F I G U R E     4  (demonstration of allometry)
+#- E N D     OF     F I G U R E     5  (demonstration of allometry)
 #---------------------------------------------------------------
 #---------------------------------------------------------------

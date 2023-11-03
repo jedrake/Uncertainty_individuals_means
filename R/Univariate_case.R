@@ -85,7 +85,9 @@ variances3
 
 
 #- set up pdf for the plot. 
-pdf(file="output/Figure2- Univariate case.pdf",width=8,height=8)
+pdf(file="output/Figure3- Univariate case.pdf",width=8,height=8)
+#tiff(file="output/Figure3- Univariate case.tiff", units="in", width=8, height=8, res=300)
+
 layout(matrix(1:9, 3, 3, byrow = TRUE), 
        widths=c(1,1,1), heights=c(1,1,1))
 par(mar=c(0,0,0,0),oma=c(7,9,5,5),cex.lab=1.7,cex.axis=1.2)

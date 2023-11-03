@@ -6,7 +6,10 @@
 #  This is the central script for the by Yanai et al. (2023) in Ecosystems, entitled:
 #   "Propagating uncertainty in predicting individuals and means illustrated with foliar chemistry and forest biomass"
 #
-#  This script calls many other scripts that perform subroutines, as described below.
+#  This script calls many other scripts that perform subroutines, as described below. By default,
+#   the scripts called here will generate pdfs for figures in the "output/" folder. If you prefer,
+#   you can have the scripts output high-resolution TIFFs (300 dpi) by uncommenting the tiff() line and commenting
+#   the pdf() line in each script. Note that the 300 dpi TIFFs are large files (>10 MB each). 
 #  
 #  This code was primarily written by Hannah Buckley in 2016 and was edited by John Drake in 2018-2023.
 #---------------------------------------------------------------------------------------------------
@@ -30,7 +33,7 @@ source("R/load_libraries.R")
 no.iter = 10000
 
 #- Set the number of trees in each simulations. Simulates small to very large forest plots
-plot.sample.size = c(10, 30, 50, 100, 1000, 10000) 
+plot.sample.size = c(10, 30, 50, 100, 1000, 10000) # units are trees per plot
 
 #- end of parameters
 #---------------------------------------------------------------
@@ -58,12 +61,14 @@ source("R/Conceptual_figure.R")
 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-#- Assess the univariate case and make Figure 2.
+#- Assess the univariate case and make Figure 3. Note that Figure 2
+#   is a flow-chart diagram that is not represented in this code.
+
 #  For illustration purposes, we use fewer iterations here than
 #   in subsequent analyses for which we advocate using 10,000 iterations.
 no.iter <- 3000
 source("R/Univariate_case.R")
-no.iter <- 10000 # set the number of iterations back to 10000
+no.iter <- 10000 # set the number of iterations back to 10000 for subsequent scripts
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 
@@ -71,7 +76,7 @@ no.iter <- 10000 # set the number of iterations back to 10000
 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-#- Illustrate the allometry and make Figure 4.
+#- Illustrate the allometry and make Figure 5.
 source("R/illustrate_allometry.R")
 #---------------------------------------------------------------
 #---------------------------------------------------------------
@@ -81,7 +86,10 @@ source("R/illustrate_allometry.R")
 #---------------------------------------------------------------
 #---------------------------------------------------------------
 #- Run the main Monte Carlo uncertainty assessment code.
-#  Create Figures 3, 5, and 6.
+#  This one may take some time to run (~10 min) in a way that 
+#  depends strongly on the number of iterations (no.iter).
+
+#  Create Figures 4, 6, and 7.
 source("R/main_monte_carlo.R") 
 #---------------------------------------------------------------
 #---------------------------------------------------------------
@@ -104,7 +112,7 @@ source("R/main_monte_carlo_analytical_assessment.R")
 #---------------------------------------------------------------
 #- Make the last figure regarding total Ca content at Hubbard Brook.
 #  The code to do the simulation is embedded in an excel sheet.
-#  This script plots the results. Creates Figure 7
+#  This script plots the results. Creates Figure 8
 source("R/Ca at Hubbard Brook.R")
 #---------------------------------------------------------------
 #---------------------------------------------------------------

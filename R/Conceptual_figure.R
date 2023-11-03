@@ -30,7 +30,7 @@ y <- dnorm(x,mean=5,sd=0.5)
 #plot x and y as a scatterplot with connected lines (type = "l") and add
 #an x-axis with custom labels
 pdf(file="output/Figure1- distributions.pdf",width=8,height=8)
-
+#tiff(file="output/Figure1- distributions.tiff", units="in", width=8, height=8, res=300)
 
 plot(x,y, type = "l", lwd = 2, axes = FALSE, 
      xlab = (expression(paste("Leaf calcium concentration ", (mg~g^-1)))), ylab = "")

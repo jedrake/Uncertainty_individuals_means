@@ -1,6 +1,6 @@
 #---------------------------------------------------------------
 #---------------------------------------------------------------
-#- M O N T E     C A R L O - (Makes figures 3, 5, and 6)
+#- M O N T E     C A R L O - (Makes figures 4, 6, and 7)
 
 #- This code utilizes three methods of Monte Carlo uncertainty propagation.
 #     Method 1 is based on the uncertainty in the estimation of individuals
@@ -125,7 +125,7 @@ gdat.z$method <- factor(gdat.z$method,levels=c("Individual","Mean","Both"))
 #---------------------------------------------------------------
 # P L O T S    A N D    T A B L E S 
 
-#- Make a series of histograms for leaf mass (This is now Figure 5)
+#- Make a series of histograms for leaf mass (This is now Figure 6)
 gdat.z %>% 
   mutate(method = factor(method, labels = c("Uncertainty in the prediction\nof an individual", "Uncertainty in the prediction\nof the mean", "Both")), z = factor(z, labels = c("10 trees\n0.002 ha", "30 trees\n0.06 ha", "50 trees\n0.1 ha", "100 trees\n0.2 ha", "1000 trees\n2 ha", "10000 trees\n20 ha"))) %>% 
   ggplot(aes(x = Mass, group = method)) + 
@@ -135,11 +135,11 @@ gdat.z %>%
   xlab(expression(paste("Leaf mass ", (Mg~ha^-1)))) + 
   ylab("Frequency of Monte Carlo outcomes") + 
   theme_bw()
-ggsave("output/Figure5- Regression_graph_leafbiomass_output.png", height = 8, width = 7)
+ggsave("output/Figure6- Regression_graph_leafbiomass_output.png", height = 8, width = 7)
+#ggsave("output/Figure6- Regression_graph_leafbiomass_output.tiff", units="in", width=8, height=7, dpi=300)
 
 
-
-#- Make a series of histograms for leaf Ca concentration. This is now Figure 3.
+#- Make a series of histograms for leaf Ca concentration. This is now Figure 4.
 gdat.z %>% 
   mutate(method = factor(method, labels = c("Uncertainty in the prediction\nof an individual", "Uncertainty in the prediction\nof the mean", "Both")), z = factor(z, labels = c("10 trees\n0.002 ha", "30 trees\n0.06 ha", "50 trees\n0.1 ha", "100 trees\n0.2 ha", "1000 trees\n2 ha", "10000 trees\n20 ha"))) %>% 
   ggplot(aes(x = Point.calcium, group = method)) + 
@@ -149,10 +149,10 @@ gdat.z %>%
   xlab(expression(paste("Leaf calcium concentration ", (mg~g^-1)))) + 
   ylab("Frequency of Monte Carlo outcomes") + 
   theme_bw()
-ggsave("output/Figure3- Regression_graph_calcium_concentration_output.png", height = 8, width = 7)
+ggsave("output/Figure4- Regression_graph_calcium_concentration_output.png", height = 8, width = 7)
+#ggsave("output/Figure4- Regression_graph_calcium_concentration_output.tiff", units="in", width=8, height=7, dpi=300)
 
-
-#- Make a series of histograms for total leaf Ca content. This is now Figure 6.
+#- Make a series of histograms for total leaf Ca content. This is now Figure 7.
 gdat.z %>% 
   mutate(method = factor(method, labels = c("Uncertainty in the prediction\nof an individual", "Uncertainty in the prediction\nof the mean", "Both")), z = factor(z, labels = c("10 trees\n0.002 ha", "30 trees\n0.06 ha", "50 trees\n0.1 ha", "100 trees\n0.2 ha", "1000 trees\n2 ha", "10000 trees\n20 ha"))) %>% 
   ggplot(aes(x = Calcium, group = method)) + 
@@ -162,8 +162,8 @@ gdat.z %>%
   xlab(expression(paste("Leaf calcium content ", (kg~ha^-1)))) + 
   ylab("Frequency of Monte Carlo outcomes") + 
   theme_bw()
-ggsave("output/Figure6- Regression_graph_calcium_content_output.png", height = 8, width = 7)
-
+ggsave("output/Figure7- Regression_graph_calcium_content_output.png", height = 8, width = 7)
+#ggsave("output/Figure7- Regression_graph_calcium_content_output.tiff", units="in", width=8, height=7, dpi=300)
 
 # Write out a Table of SD values from Monte Carlo output values
 gdat.z %>% 

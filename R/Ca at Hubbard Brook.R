@@ -4,8 +4,10 @@
 
 #- Take the excel sheet that was developed by many people in Ruth's lab
 #   and most recently by the student Joe Nash. This excel sheet is included as
-#   a supplementary material to the manuscript and called XXXX. 
-#   Do the Monte Carlo simulation there, extract the data (column AD of any of the three
+#   a supplementary material to the manuscript.
+
+#   To reproduce our work, do the Monte Carlo simulation in that excel sheet.
+#   Then, extract the data (column AD of any of the three
 #    "iterations" tabs, which has total Ca in Kg ha-1), and graph the
 #    distributions. I pasted the total ecosystem Ca data 
 #    into a tab labeled "total Ca data" and saved that tab as an csv file.
@@ -19,7 +21,9 @@ joedat$Method <- factor(joedat$Method,levels=c("Individual","Mean","Both"))
 #- Make a series of histograms for total Ca content
 
 #- set up pdf for the plot
-pdf(file="output/Figure7- Ca at HB.pdf",width=8,height=6)
+#pdf(file="output/Figure8- Ca at HB.pdf",width=8,height=6)
+tiff(file="output/Figure8- Ca at HB.tiff", units="in", width=8, height=6, res=300)
+
 layout(matrix(1:3, 1, 3, byrow = TRUE), 
        widths=c(1,1,1), heights=c(1,1,1))
 par(mar=c(0,2,1,0),oma=c(7,9,5,5),cex.lab=1.7,cex.axis=1.2)
